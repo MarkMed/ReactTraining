@@ -4,7 +4,7 @@
   "description": "\"React Course project\"",
   "main": "index.html",
   "scripts": {
-    "lite": "lite-server", 
+    "lite": "lite-server",
     "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,9 @@
   "homepage": "https://github.com/MarkMed/ReactTraining#readme",
   "devDependencies": {
     "lite-server": "^2.5.4"
+  },
+  "dependencies": {
+    "create-react-app": "^3.1.1",
+    "weather-app": "^1.0.5"
   }
 }
