@@ -1,7 +1,12 @@
 import React from "react";
+import WeatherExtraInfo from "./WeatherExtraInfo";
+import WeatherTemperture from "./WeatherTemperature";
 
 const WeatherData = () => (
-    <div>Weather Data</div>
+    <div>
+        <WeatherTemperture></WeatherTemperture>
+        <WeatherExtraInfo></WeatherExtraInfo>
+    </div>
 );
 
 export default WeatherData;

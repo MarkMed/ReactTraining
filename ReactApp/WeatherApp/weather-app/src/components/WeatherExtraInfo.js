@@ -1,7 +1,7 @@
 import React from "react"
 
-const WeatherExtraInfo = () => {
-    <div>Info Extra</div>
-}
+const WeatherExtraInfo = () => (
+    <div>Windy and cloudy</div>
+)
 
 export default WeatherExtraInfo;
