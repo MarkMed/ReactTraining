@@ -1,7 +1,10 @@
 import React from "react"
 
-const WeatherTemperture = () => (
-    <div>25°</div>
-)
+const WeatherTemperture = (props) => {
+    console.log(props);
+    return (
+        <div>{props.temperature}</div>
+    )
+}
 
 export default WeatherTemperture;
