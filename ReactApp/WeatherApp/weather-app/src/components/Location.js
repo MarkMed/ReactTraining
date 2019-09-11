@@ -1,10 +1,9 @@
 import React from "react"
 
-const Location = (props) => {    
-    const {city} = props;
+const Location = ({city, neighbor}) => {
     return (
         <div>
-            <h1>{city}</h1>
+            <h1>{city + ", " + neighbor}</h1>
         </div>
     );
 }
