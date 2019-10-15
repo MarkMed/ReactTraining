@@ -1,11 +1,13 @@
 import React from "react";
 import WeatherExtraInfo from "./WeatherExtraInfo";
 import WeatherTemperture from "./WeatherTemperature";
+import WeatherTime from "./WeatherTime";
 
 const WeatherData = () => (
     <div>
+        <WeatherTime></WeatherTime>
         <WeatherTemperture temperature={"25°"}></WeatherTemperture>
-        <WeatherExtraInfo></WeatherExtraInfo>
+        <WeatherExtraInfo humidity={80} wind={"10 m/s"}></WeatherExtraInfo>
     </div>
 );
 
