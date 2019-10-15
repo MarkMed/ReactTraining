@@ -6,7 +6,11 @@ import WeatherTime from "./WeatherTime";
 const WeatherData = () => (
     <div>
         <WeatherTime></WeatherTime>
-        <WeatherTemperture temperature={"25°"}></WeatherTemperture>
+        <WeatherTemperture 
+            temperature={25}
+            weatherState={"sunny"}>
+
+        </WeatherTemperture>
         <WeatherExtraInfo humidity={80} wind={"10 m/s"}></WeatherExtraInfo>
     </div>
 );
