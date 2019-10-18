@@ -18,7 +18,7 @@ const WeatherData = () => (
             weatherState={FOG}>
 
         </WeatherTemperture>
-        <WeatherExtraInfo humidity={80} wind={"10 m/s"}></WeatherExtraInfo>
+        <WeatherExtraInfo humidity={80} wind={10}></WeatherExtraInfo>
     </div>
 );
 
