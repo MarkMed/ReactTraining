@@ -2,6 +2,7 @@ import React from "react";
 import WeatherExtraInfo from "./WeatherExtraInfo";
 import WeatherTemperture from "./WeatherTemperature";
 import WeatherTime from "./WeatherTime";
+import "./styles.css";
 import { 
     CLOUD,
     FOG,
@@ -11,10 +12,10 @@ import {
 } from "../../../constants/weatherStates";
 
 const WeatherData = () => (
-    <div>
+    <div className="weatherDataContainer">
         <WeatherTime></WeatherTime>
         <WeatherTemperture 
-            temperature={25}
+            temperature={27}
             weatherState={FOG}>
 
         </WeatherTemperture>
