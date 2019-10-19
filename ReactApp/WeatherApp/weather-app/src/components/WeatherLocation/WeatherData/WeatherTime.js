@@ -6,9 +6,8 @@ const WeatherTime = () => {
     let hours = (today.getHours() % 12);
     let time = `${hours ? hours : 12} : ${today.getMinutes()} : ${today.getSeconds()} ${(today.getHours() <= 12) ? "am" : "pm"}`;
     return (
-        <div>
+        <div  className="weatherTimeContainer">
             <span>{date}</span>
-            <br></br>
             <span>{time}</span>
         </div>
     );
