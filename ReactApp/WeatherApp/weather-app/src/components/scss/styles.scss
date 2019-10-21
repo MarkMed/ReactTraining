@@ -1,3 +1,16 @@
+// base.scss
+@import 'noDefaultStyle';
+@import 'varsMixinExtends';
+.weatherLocationContainer{
+    @include widthHeightsize(90%, auto);
+    border-radius: 20px;
+    @include flex(column, space-around, center, wrap);
+}
+.location{
+    width: 100%;
+    height: 100px;
+}
+
 .weatherDataContainer{
     background-color: rgba(17, 105, 177, 0.698);
     width: 100vw;

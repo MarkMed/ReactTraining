@@ -2,7 +2,6 @@ import React from "react";
 import WeatherExtraInfo from "./WeatherExtraInfo";
 import WeatherTemperture from "./WeatherTemperature";
 import WeatherTime from "./WeatherTime";
-import "./styles.css";
 import { 
     CLOUD,
     FOG,
