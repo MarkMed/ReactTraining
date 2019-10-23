@@ -13,7 +13,7 @@ const weatherIcon = {
 
 function getWeatherIcon(weatherState){
     return (
-        <WeatherIcons name={(weatherIcon[weatherState])?(weatherIcon[weatherState]):(weatherIcon.default)} size="2x"></WeatherIcons>
+        <WeatherIcons className="weatherIcon" name={(weatherIcon[weatherState])?(weatherIcon[weatherState]):(weatherIcon.default)} size="4x"></WeatherIcons>
     );
 }
 
@@ -21,7 +21,7 @@ const WeatherTemperture = ({temperature, weatherState}) => {
     return (
         <div className="weatherTemperatureContainer">
             {getWeatherIcon(weatherState)}
-            <span>{` ${temperature}°`}</span>
+            <span>{` ${temperature}°C`}</span>
         </div>
     )
 }

@@ -2,50 +2,42 @@
 @import 'noDefaultStyle';
 @import 'varsMixinExtends';
 .weatherLocationContainer{
+    color: $clearColor75;
     @include widthHeightsize(90%, auto);
+    overflow: hidden;
     border-radius: 20px;
     @include flex(column, space-around, center, wrap);
-}
-.location{
-    width: 100%;
-    height: 100px;
-}
-
-.weatherDataContainer{
-    background-color: rgba(17, 105, 177, 0.698);
-    width: 100vw;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.weatherTimeContainer{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: flex-end;
-}
-.weatherTemperatureContainer{
-    width: 60%;
-    height: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.weatherExtraInfoContainer{
-    color: rgba(200, 250, 250, 0.8);
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    width: 40%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: $primaryColor100;
+    .location{
+        @include widthHeightsize(90%, 100px);
+        @include flex(row, center, center, wrap);
+        border-bottom: 1px solid $clearColor50;
+    }
+    .weatherDataContainer{
+        @include widthHeightsize(100%, 500px);
+        @include flex(row, space-around, center, wrap);
+        .weatherTimeContainer{
+            @include widthHeightsize(90%, 10%);
+            @include flex(column, center, flex-end, wrap);
+        }
+        .weatherTemperatureContainer{
+            @include widthHeightsize(50%, 90%);
+            @include flex(row, center, center, wrap);
+            border-right: 1px solid $clearColor50;
+            .weatherIcon{
+                margin-right: 10px;
+            }
+            span{
+                font-size: 25px;
+                font-weight: 600;
+            }
+        }
+        .weatherExtraInfoContainer{
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            @include widthHeightsize(30%, 90%);
+            @include flex(column, center, center, wrap);
+        }
+    }
 }
