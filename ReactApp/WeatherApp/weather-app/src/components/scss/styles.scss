@@ -3,7 +3,7 @@
 @import 'varsMixinExtends';
 .weatherLocationContainer{
     color: $clearColor75;
-    @include widthHeightsize(90%, auto);
+    @include widthHeightsize(100%, auto);
     overflow: hidden;
     border-radius: 20px;
     @include flex(column, space-around, center, wrap);
@@ -14,7 +14,10 @@
         border-bottom: 1px solid $clearColor50;
     }
     .weatherDataContainer{
-        @include widthHeightsize(100%, 500px);
+        background-color: $clearColor25;
+        margin: 50px auto;
+        border-radius: 20px;
+        @include widthHeightsize(90%, 400px);
         @include flex(row, space-around, center, wrap);
         .weatherTimeContainer{
             @include widthHeightsize(90%, 10%);
