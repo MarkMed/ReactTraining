@@ -3,8 +3,7 @@ import WeatherExtraInfo from "./WeatherExtraInfo";
 import WeatherTemperture from "./WeatherTemperature";
 import WeatherTime from "./WeatherTime";
 
-const WeatherData = ({data}) => {
-    const {humidty, temperature, weatherState, wind} = data;
+const WeatherData = ({data: {humidty, temperature, weatherState, wind}}) => {
     return (
         <div className="weatherDataContainer">
             <WeatherTime></WeatherTime>
