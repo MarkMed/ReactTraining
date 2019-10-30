@@ -3,21 +3,46 @@
 @import 'varsMixinExtends';
 .weatherLocationContainer{
     color: $clearColor75;
-    @include widthHeightsize(100%, auto);
+    @include widthHeightsize(calc(100% - 40px), auto);
     overflow: hidden;
     border-radius: 20px;
-    @include flex(column, space-around, center, wrap);
+    padding: 20px;
+    @include flex(column, space-around, flex-start, wrap);
     background-color: $primaryColor100;
+    button{
+        @include widthHeightsize(200px, 50px);
+        margin: 20px;
+        margin-top: 0;
+        border: 1px solid $clearColor50;
+        color: $clearColor75;
+        font-family: 'Raleway';
+        text-transform: uppercase;
+        border-radius: 20px;
+        transition: 0.4s $animationFX;
+        cursor: pointer;
+        &:hover{
+            background-color: $clearColor75;
+            color: $primaryColor75;
+            box-shadow: 0px 0px 5px 2px $clearColor75;
+        }
+        &:active{
+            box-shadow: 0px 0px 10px 3px $clearColor75;
+            transition: 0.1s $animationFX;
+        }
+    }
     .location{
-        @include widthHeightsize(90%, 100px);
+        @include widthHeightsize(calc(100% - 40px), 100px);
         @include flex(row, center, center, wrap);
         border-bottom: 1px solid $clearColor50;
+        margin: 20px;
+        margin-top: 0;
     }
     .weatherDataContainer{
+        margin: 20px;
+        margin-top: 0;
         background-color: $clearColor25;
-        margin: 50px auto;
         border-radius: 20px;
-        @include widthHeightsize(90%, 400px);
+        @include widthHeightsize(calc(100% - 40px), 400px);
         @include flex(row, space-around, center, wrap);
         .weatherTimeContainer{
             @include widthHeightsize(90%, 10%);

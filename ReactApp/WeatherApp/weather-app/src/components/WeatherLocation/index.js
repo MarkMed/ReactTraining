@@ -18,11 +18,17 @@ const data = {
 }
 
 class WeatherLocation extends Component {
+
+    updateClickFunction(){
+        console.log("updated!")
+    }
+
     render(){
         return(
             <div className="weatherLocationContainer">
                 <Location city={"Miami"} neighbor={"Wynwood"}></Location>
                 <WeatherData data={data}></WeatherData>
+                <button onClick={this.updateClickFunction}>Update Info</button>
             </div>
         );
     }
