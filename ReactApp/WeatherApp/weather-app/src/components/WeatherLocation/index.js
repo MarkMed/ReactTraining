@@ -23,6 +23,11 @@ const data2 = {
     wind: 20
 }
 
+const urlBase = "http://api.openweathermap.org/data/2.5/weather";
+const apiKey = "60fa1fb04f78e369c50b0037c37cb0c3";
+let locationCity = "Montevideo,uy";
+let url2Ask = `${urlBase}?q=${locationCity}&appid=${apiKey}`;
+
 class WeatherLocation extends Component {
 
     constructor(){
@@ -37,6 +42,7 @@ class WeatherLocation extends Component {
     }
 
     updateClickFunction = () => {
+        fetch(url2Ask);
         console.log("updated!")
         this.setState({
             location: {
