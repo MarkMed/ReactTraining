@@ -42,8 +42,16 @@ class WeatherLocation extends Component {
     }
 
     updateClickFunction = () => {
-        fetch(url2Ask);
-        console.log("updated!")
+        fetch(url2Ask)
+            .then((resolve)=>{
+              return resolve.json();
+            })
+                .then((data)=>{
+                    console.log(data);
+                })
+            //    .then((data)=>{});
+
+        console.log("updated!")//, infoRetrived)
         this.setState({
             location: {
                 city: "Miami",
