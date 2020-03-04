@@ -40,17 +40,34 @@ class WeatherLocation extends Component {
             data: data
         }
     }
+    getData = WeatherData => {
+        const {humidity, temp} = WeatherData.main;
+        const { speed } = WeatherData.wind;
+        const weatherState = this.getWeatherState(WeatherData);
+        
+        const data = {
+            humidity,
+            temperature: Math.round(temp - 273.15),
+            weatherState,
+            wind: speed
+        }
 
+        return data
+    }
+    getWeatherState = WeatherData => {
+        return WeatherData.weather[0].main
+    }
     updateClickFunction = async () => {
         const infoRetrivedResponse = await fetch(url2Ask);
         const infoRetrived = await infoRetrivedResponse.json();
         console.log("updated!", infoRetrived)//, infoRetrived)
+        const newInfo= this.getData(infoRetrived);
         this.setState({
             location: {
                 city: "Miami",
                 neighbor: "Wynwood"
             },
-            data: data2
+            data: newInfo
         });
     }
 
