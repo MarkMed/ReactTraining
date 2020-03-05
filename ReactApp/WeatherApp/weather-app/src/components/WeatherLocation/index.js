@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import Location from "./Location"
+import transformWeatherData from "../../services/transformWeatherData"
+import { api_weather } from "../../services/api_url"
 import WeatherData from "./WeatherData"
 import "../css/styles.css";
 import { 
@@ -11,22 +13,11 @@ import {
 } from "../../constants/weatherStates";
 
 const data = {
-    humidty: 80,
+    humidity: 80,
     temperature: 27,
     weatherState: FOG,
     wind: 10
 }
-const data2 = {
-    humidty: 100,
-    temperature: 22,
-    weatherState: RAIN,
-    wind: 20
-}
-
-const urlBase = "http://api.openweathermap.org/data/2.5/weather";
-const apiKey = "60fa1fb04f78e369c50b0037c37cb0c3";
-let locationCity = "Montevideo,uy";
-let url2Ask = `${urlBase}?q=${locationCity}&appid=${apiKey}`;
 
 class WeatherLocation extends Component {
 
@@ -40,28 +31,11 @@ class WeatherLocation extends Component {
             data: data
         }
     }
-    getData = WeatherData => {
-        const {humidity, temp} = WeatherData.main;
-        const { speed } = WeatherData.wind;
-        const weatherState = this.getWeatherState(WeatherData);
-        
-        const data = {
-            humidity,
-            temperature: Math.round(temp - 273.15),
-            weatherState,
-            wind: speed
-        }
-
-        return data
-    }
-    getWeatherState = WeatherData => {
-        return WeatherData.weather[0].main
-    }
     updateClickFunction = async () => {
-        const infoRetrivedResponse = await fetch(url2Ask);
+        const infoRetrivedResponse = await fetch(api_weather);
         const infoRetrived = await infoRetrivedResponse.json();
         console.log("updated!", infoRetrived)//, infoRetrived)
-        const newInfo= this.getData(infoRetrived);
+        const newInfo = transformWeatherData(infoRetrived);
         this.setState({
             location: {
                 city: "Miami",

@@ -4,7 +4,7 @@ import WeatherTemperture from "./WeatherTemperature";
 import WeatherTime from "./WeatherTime";
 import PropTypes from "prop-types";
 
-const WeatherData = ({data: {humidty, temperature, weatherState, wind}}) => {
+const WeatherData = ({data: {humidity, temperature, weatherState, wind}}) => {
     return (
         <div className="weatherDataContainer">
             <WeatherTime></WeatherTime>
@@ -13,7 +13,7 @@ const WeatherData = ({data: {humidty, temperature, weatherState, wind}}) => {
                 weatherState={weatherState}>
 
             </WeatherTemperture>
-            <WeatherExtraInfo humidity={humidty} wind={wind}></WeatherExtraInfo>
+            <WeatherExtraInfo humidity={humidity} wind={wind}></WeatherExtraInfo>
         </div>
     )
 };

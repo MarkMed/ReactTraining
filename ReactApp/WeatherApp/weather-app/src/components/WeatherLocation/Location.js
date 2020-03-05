@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Location = ({city: myCity, neighbor: myNeigh}) => {
+const Location = ({city, neighbor}) => {
     return (
         <div className="location">
-            <h1>{myCity + ", " + myNeigh}</h1>
+            <h1>{city + ", " + neighbor}</h1>
         </div>
     );
 }
 
 Location.propTypes = {
-    myCity: PropTypes.string.isRequired,
-    myNeigh: PropTypes.string.isRequired
+    city: PropTypes.string.isRequired,
+    neighbor: PropTypes.string.isRequired
 
 }
 export default Location;
