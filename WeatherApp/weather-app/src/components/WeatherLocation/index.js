@@ -29,8 +29,17 @@ class WeatherLocation extends Component {
                 neighbor: "Wynwood"
             },
             data: data
-        }
-    }
+		}
+		console.log("constructor running!");
+	}
+	
+	componentDidMount(){
+		console.log("didMount running!");
+	}
+
+	componentDidUpdate(){
+		console.log("didUpdate running!");
+	}
     updateClickFunction = async () => {
         const infoRetrivedResponse = await fetch(api_weather);
         const infoRetrived = await infoRetrivedResponse.json();
@@ -46,6 +55,7 @@ class WeatherLocation extends Component {
     }
 
     render(){
+		console.log("render running!")
         return(
             <div className="weatherLocationContainer">
                 <Location city={this.state.location.city} neighbor={this.state.location.neighbor}></Location>
