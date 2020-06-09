@@ -62,9 +62,9 @@ $smallWidth: 640px;
 $mediumWidth: 1007px;
 
 /*Mixins*/
-@mixin widthHeightsize($valueX, $valueY) {
-	height:$valueY;
-	width:$valueX;
+@mixin size($width, $height) {
+	height:$height;
+	width:$width;
 }
 @mixin flex($direct, $justCont, $aligItem, $wrap){
 	display: flex;
