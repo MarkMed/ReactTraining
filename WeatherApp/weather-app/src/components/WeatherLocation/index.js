@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Loading from "../Loading"
 import Location from "./Location"
 import transformWeatherData from "../../services/transformWeatherData"
 import { api_weather } from "../../services/api_url"
@@ -37,7 +38,6 @@ class WeatherLocation extends Component {
     updateData = async () => {
         const infoRetrivedResponse = await fetch(api_weather);
         const infoRetrived = await infoRetrivedResponse.json();
-        console.log("updated!", infoRetrived)//, infoRetrived)
         const newInfo = transformWeatherData(infoRetrived);
         this.setState({
             location: {
@@ -49,15 +49,13 @@ class WeatherLocation extends Component {
     }
 
     render(){
-		console.log("render running!")
         return(
             <div className="weatherLocationContainer">
                 <Location city={this.state.location.city} neighbor={this.state.location.neighbor}></Location>
 				{(this.state.data)
 					?<WeatherData data={this.state.data}></WeatherData>
-					:"Loading..."
+					:<Loading caption="Loading..." animated={true}></Loading>
 				}
-                <button onClick={this.updateData}>Update Info</button>
             </div>
         );
     }
