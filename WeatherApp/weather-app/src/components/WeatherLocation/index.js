@@ -12,13 +12,6 @@ import {
     SUN 
 } from "../../constants/weatherStates";
 
-const data = {
-    humidity: 80,
-    temperature: 27,
-    weatherState: FOG,
-    wind: 10
-}
-
 class WeatherLocation extends Component {
 
     constructor(){
@@ -28,19 +21,20 @@ class WeatherLocation extends Component {
                 city: "Miami",
                 neighbor: "Wynwood"
             },
-            data: data
+            data: null
 		}
 		console.log("constructor running!");
 	}
 	
 	componentDidMount(){
 		console.log("didMount running!");
+		this.updateData();
 	}
 
 	componentDidUpdate(){
 		console.log("didUpdate running!");
 	}
-    updateClickFunction = async () => {
+    updateData = async () => {
         const infoRetrivedResponse = await fetch(api_weather);
         const infoRetrived = await infoRetrivedResponse.json();
         console.log("updated!", infoRetrived)//, infoRetrived)
@@ -59,8 +53,11 @@ class WeatherLocation extends Component {
         return(
             <div className="weatherLocationContainer">
                 <Location city={this.state.location.city} neighbor={this.state.location.neighbor}></Location>
-                <WeatherData data={this.state.data}></WeatherData>
-                <button onClick={this.updateClickFunction}>Update Info</button>
+				{(this.state.data)
+					?<WeatherData data={this.state.data}></WeatherData>
+					:"Loading..."
+				}
+                <button onClick={this.updateData}>Update Info</button>
             </div>
         );
     }
