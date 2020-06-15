@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import Loading from "../Loading"
+import CircularProgress from "@material-ui/core/CircularProgress"
+// import Loading from "../Loading"
 import Location from "./Location"
 import transformWeatherData from "../../services/transformWeatherData"
 import { api_weather } from "../../services/api_url"
@@ -16,7 +17,7 @@ import {
 class WeatherLocation extends Component {
 
     constructor(){
-        super();
+		super();
         this.state = {
             location: {
                 city: "Miami",
@@ -54,7 +55,7 @@ class WeatherLocation extends Component {
                 <Location city={this.state.location.city} neighbor={this.state.location.neighbor}></Location>
 				{(this.state.data)
 					?<WeatherData data={this.state.data}></WeatherData>
-					:<Loading caption="Loading..." animated={true}></Loading>
+					:<CircularProgress></CircularProgress>//<Loading caption="Loading..." animated={true}></Loading>
 				}
             </div>
         );
