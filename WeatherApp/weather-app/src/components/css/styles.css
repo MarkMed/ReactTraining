@@ -81,7 +81,7 @@ width of element:
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   background-color: #012a39; }
   .weatherLocationContainer button {

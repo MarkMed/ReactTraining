@@ -33,7 +33,7 @@
     overflow: hidden;
     border-radius: 20px;
     padding: 20px;
-    @include flex(column, space-around, flex-start, wrap);
+    @include flex(column, space-around, center, wrap);
     background-color: $primaryColor100;
     button{
         @include size(200px, 50px);
