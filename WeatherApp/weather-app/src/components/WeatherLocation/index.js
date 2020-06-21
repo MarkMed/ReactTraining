@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import CircularProgress from "@material-ui/core/CircularProgress"
+import CircularProgress from "@material-ui/core/CircularProgress";
 // import Loading from "../Loading"
-import Location from "./Location"
-import transformWeatherData from "../../services/transformWeatherData"
-import { api_weather } from "../../services/api_url"
-import WeatherData from "./WeatherData"
+import {PropTypes} from "prop-types";
+import Location from "./Location";
+import getUrlWeatherByCity from "../../services/getUrlWeatherByCity";
+import transformWeatherData from "../../services/transformWeatherData";
+import WeatherData from "./WeatherData";
 import "../css/styles.css";
 import { 
     CLOUD,
@@ -16,12 +17,12 @@ import {
 
 class WeatherLocation extends Component {
 
-    constructor(){
-		super();
+    constructor(props){
+		super(props);
+		const {city} = props;
         this.state = {
             location: {
-                city: "Miami",
-                neighbor: "Wynwood"
+                city,
             },
             data: null
 		}
@@ -37,14 +38,11 @@ class WeatherLocation extends Component {
 		console.log("didUpdate running!");
 	}
     updateData = async () => {
+		const api_weather = getUrlWeatherByCity(this.state.location.city);
         const infoRetrivedResponse = await fetch(api_weather);
         const infoRetrived = await infoRetrivedResponse.json();
         const newInfo = transformWeatherData(infoRetrived);
         this.setState({
-            location: {
-                city: "Miami",
-                neighbor: "Wynwood"
-            },
             data: newInfo
         });
     }
@@ -52,7 +50,7 @@ class WeatherLocation extends Component {
     render(){
         return(
             <div className="weatherLocationContainer">
-                <Location city={this.state.location.city} neighbor={this.state.location.neighbor}></Location>
+                <Location city={this.state.location.city}></Location>
 				{(this.state.data)
 					?<WeatherData data={this.state.data}></WeatherData>
 					:<CircularProgress></CircularProgress>//<Loading caption="Loading..." animated={true}></Loading>
@@ -60,6 +58,10 @@ class WeatherLocation extends Component {
             </div>
         );
     }
+}
+
+WeatherLocation.propTypes = {
+	city: PropTypes.string.isRequired
 }
 
 export default WeatherLocation;
