@@ -1,5 +1,10 @@
-export const CLOUD = "cloud";
-export const FOG = "fog";
-export const RAIN = "rain";
-export const SNOW = "snow";
-export const SUN = "sun";
+export const weatherIcon = {
+	Clear: "day-sunny",
+    Clouds: "cloudy",
+    default: "day-cloudy",
+	Drizzle: "showers",
+    Fog: "fog",
+    Rain: "rain-wind",
+    Snow: "snow",
+	Thunderstorm: "thunderstorm"
+}

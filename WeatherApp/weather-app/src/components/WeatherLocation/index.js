@@ -7,13 +7,6 @@ import getUrlWeatherByCity from "../../services/getUrlWeatherByCity";
 import transformWeatherData from "../../services/transformWeatherData";
 import WeatherData from "./WeatherData";
 import "../css/styles.css";
-// import { 
-//     CLOUD,
-//     FOG,
-//     RAIN,
-//     SNOW,
-//     SUN 
-// } from "../../constants/weatherStates";
 
 class WeatherLocation extends Component {
 
