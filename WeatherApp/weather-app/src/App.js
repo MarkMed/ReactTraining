@@ -6,12 +6,15 @@ import './App.css';
 const cities = ["Montevideo,uy","New York,usa","Buenos Aires,ar"];
 
 function App() {
+  const handleSelectedLocation = (city)=>{
+	console.log("App escuchó > handleSelectLocation!", city);
+  }
   return (
     <div className="App">
-		{/* <WeatherLocation city="Montevideo,uy"></WeatherLocation>
-    	<WeatherLocation city="New York,usa"></WeatherLocation>
-    	<WeatherLocation city="Buenos Aires,ar"></WeatherLocation> */}
-		<LocationList cities={cities}></LocationList>
+		<LocationList
+			cities={cities}
+			onSelectedLocation={handleSelectedLocation}
+		></LocationList>
     </div>
   );
 }
