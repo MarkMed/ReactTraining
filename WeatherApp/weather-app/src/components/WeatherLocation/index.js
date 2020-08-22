@@ -7,17 +7,18 @@ import getUrlWeatherByCity from "../../services/getUrlWeatherByCity";
 import transformWeatherData from "../../services/transformWeatherData";
 import WeatherData from "./WeatherData";
 import "../css/styles.css";
-import { 
-    CLOUD,
-    FOG,
-    RAIN,
-    SNOW,
-    SUN 
-} from "../../constants/weatherStates";
+// import { 
+//     CLOUD,
+//     FOG,
+//     RAIN,
+//     SNOW,
+//     SUN 
+// } from "../../constants/weatherStates";
 
 class WeatherLocation extends Component {
 
     constructor(props){
+		console.log("constructor running!");
 		super(props);
 		const {city} = props;
         this.state = {
@@ -26,7 +27,6 @@ class WeatherLocation extends Component {
             },
             data: null
 		}
-		console.log("constructor running!");
 	}
 	
 	componentDidMount(){
@@ -40,7 +40,8 @@ class WeatherLocation extends Component {
     updateData = async () => {
 		const api_weather = getUrlWeatherByCity(this.state.location.city);
         const infoRetrivedResponse = await fetch(api_weather);
-        const infoRetrived = await infoRetrivedResponse.json();
+		const infoRetrived = await infoRetrivedResponse.json();
+		console.log(infoRetrived)
         const newInfo = transformWeatherData(infoRetrived);
         this.setState({
             data: newInfo
